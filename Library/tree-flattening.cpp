@@ -1,7 +1,23 @@
 /**
     author: ਰਾਜ ਕਰਨ ਸਿੰਘ
 **/
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <cmath>
+#include <cstring>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <random>
+#include <set>
+#include <vector>
+#include <stack>
 using namespace std;
 
 #define int int64_t
@@ -10,26 +26,39 @@ using namespace std;
 #define sz(x) (int)x.size()
 #define pp pair<int, int>
 
-template <typename A, typename B> istream& operator>>(istream &is, pair<A, B> &p) { return is >> p.first >> p.second; }
-template<typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type>istream& operator >> (istream &is, T_container &v) {for(T &x : v) is >> x; return is;}
-template <typename A, typename B>ostream &operator<<(ostream &os, const pair<A, B> &p){return os << '(' << p.first << ", " << p.second << ')';}
-template <typename T_container, typename T = typename enable_if<!is_same<T_container, string>::value, typename T_container::value_type>::type>ostream &operator<<(ostream &os, const T_container &v){    os << '{';string sep;for (const T &x : v)os << sep << x, sep = ", ";return os << '}';}
-template<class P, class Q = vector<P>, class R = less<P> > ostream& operator << (ostream& out, priority_queue<P, Q, R> const& M){static priority_queue<P, Q, R> U;U = M;out << "{ ";while(!U.empty())out << U.top() << " ", U.pop();return (out << "}");}
-template<class P> ostream& operator << (ostream& out, queue<P> const& M){static queue<P> U;U = M;out << "{ ";while(!U.empty())out << U.front() << " ", U.pop();return (out << "}");}
-void dbg_out() { cerr << endl; }
-template <typename Head, typename... Tail>
-void dbg_out(Head H, Tail... T){cerr << ' ' << H; dbg_out(T...);}
-#ifdef LOCAL
-    #define dbg(...) cerr << __func__ << " : " << __LINE__ << " " << "(" << #__VA_ARGS__ << ") : ",dbg_out(__VA_ARGS__);
-#else
-    #define dbg(...) 2529;
-#endif
-template <class T> using min_heap = priority_queue<T, vector<T>, greater<T>>;
+// Flattening means make an array of tree nodes
+// ->any subtree would be present as a range in the array
 
-const int mod = 1e9 + 7, inf = 1e18L + 5, N = 2e5 + 5;
-const string yes = "YES", no = "NO";
+// Tree can have multiple Flattened trees
+
+// updates/queries on trees --> updates/queries over a range -->
 
 void solve() {
+    int n , m;
+    cin >> n >> m;
+    vector<vector<int>>g(n  + 1);
+    for(int i = 0; i < m; i++)
+    {
+        int u, v;
+        cin >> u >> v;
+        g[u].push_back(v);
+        g[v].push_back(u);
+    }
+    vector<int>flattened;
+    vector<int>start(n + 1, -1), end(n + 1, -1);
+    vector<bool> vis(n + 1,false);
+    function<void(int)> dfs = [&](int u) {
+        flattened.push_back(u);
+        start[u] = sz(flattened);
+        vis[u] = true;
+
+        for(auto &v : g[u]) {
+            if(vis[v]) continue;
+            dfs(v);
+        }
+        end[u] = sz(flattened);
+    };
+    dfs(1);
 
 }
 

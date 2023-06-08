@@ -1,7 +1,23 @@
 /**
     author: ਰਾਜ ਕਰਨ ਸਿੰਘ
 **/
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <cmath>
+#include <cstring>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <random>
+#include <set>
+#include <vector>
+#include <stack>
 using namespace std;
 
 #define int int64_t

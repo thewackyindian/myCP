@@ -1,4 +1,20 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <cmath>
+#include <cstring>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <random>
+#include <set>
+#include <vector>
+#include <stack>
 using namespace std;
 
 int main() {
@@ -29,14 +45,16 @@ int main() {
                     }
                     exit(0);
                 }
+                continue;
             }
             dfs(v);
         }
         st.pop();
         dfs_finished[u] = true;
     };
-    dfs(1);
-
+    for(int i = 1; i <= n; i++) {
+        if(!vis[i])dfs(i);
+    }
 }
 
 

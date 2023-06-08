@@ -1,7 +1,23 @@
 /**
-    author: ਰਾਜ ਕਰਨ ਸਿੰਘ
+   created:   08.06.2023 13:38:51
+   author :   ਰਾਜ ਕਰਨ ਸਿੰਘ
 **/
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <cmath>
+#include <cstring>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <random>
+#include <set>
+#include <vector>
 using namespace std;
 
 #define int int64_t
@@ -30,7 +46,10 @@ const int mod = 1e9 + 7, inf = 1e18L + 5, N = 2e5 + 5;
 const string yes = "YES", no = "NO";
 
 void solve() {
-
+    int n;
+    cin >> n;
+    vector<int>a(n);
+    cin >> a;
 }
 
 signed main() {
@@ -39,7 +58,7 @@ signed main() {
     cin.tie(nullptr);
 #endif
     int cases = 1;
-    cin >> cases;
+    // cin >> cases;
     for (int tc = 1; tc <= cases; tc++) {
         solve();
     }

@@ -1,4 +1,20 @@
-#include <bits/stdc++.h>
+#include <algorithm>
+#include <array>
+#include <bitset>
+#include <cassert>
+#include <chrono>
+#include <cmath>
+#include <cstring>
+#include <functional>
+#include <iomanip>
+#include <iostream>
+#include <map>
+#include <numeric>
+#include <queue>
+#include <random>
+#include <set>
+#include <vector>
+#include <stack>
 using namespace std;
 
 struct DSU {
@@ -41,6 +57,7 @@ struct DSU {
         parent[b] = a;
         if (rank[a] == rank[b])
             rank[a]++;
+        return true;
     }
 };
 
